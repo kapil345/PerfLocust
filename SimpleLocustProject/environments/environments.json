@@ -3,15 +3,15 @@
       "PARABANK_BASE_URL": "https://parabank.parasoft.com/",
       "API_HOST": "https://api.restful-api.dev/objects",
       "api_host": "https://restful-booker.herokuapp.com",
-      "cms_host": "https://cms.ae03.leantech.me",
-      "oauth_host": "https://auth.ae03.leantech.me"
+      "cms_host": "https://cms.stage.compnay.me",
+      "oauth_host": "https://auth.stage.compnay.me"
     },
     "PROD": {
       "PARABANK_BASE_URL": "https://parabank.prod.com/",
       "API_HOST": "https://restful-booker.herokuapp.com",
       "api_host": "https://api.restful-api.dev/objects",
-      "cms_host": "https://cms.prod.leantech.me",
-      "oauth_host": "https://auth.prod.leantech.me"
+      "cms_host": "https://cms.prod.compnay.me",
+      "oauth_host": "https://auth.prod.compnay.me"
     }
 }
 
