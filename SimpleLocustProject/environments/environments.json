@@ -1,0 +1,10 @@
+{
+    "STAGE": {
+      "PARABANK_BASE_URL": "https://parabank.parasoft.com/",
+      "API_HOST": "https://restful-booker.herokuapp.com"
+    },
+    "PROD": {
+      "PARABANK_BASE_URL": "https://parabank.prod.com/",
+      "API_HOST": "https://restful-booker.herokuapp.com"
+    }
+}
