@@ -1,7 +1,8 @@
-test_name: "Sample API GET Load Test"
-users: 20
+test_name: "API Load Test"
+environment: "STAGE"
+users: 5
 spawn_rate: 3
-run_time: "1m"
+run_time: "5s"
 headless: true  # Control if test runs in headless mode
 test_files:
   - "simulations/api_tests.py"
