@@ -1,0 +1,8 @@
+test_name: "Concurrency Test - Multiple Requests at Once"
+host: "https://restful-booker.herokuapp.com"
+users: 100  # High but steady load
+spawn_rate: 100  # Instant start for all users
+run_time: "10m"
+endpoint: "/booking?firstname=Jim"
+
+# A Concurrency Test simulates multiple users making simultaneous requests at the same time to detect race conditions and deadlocks.

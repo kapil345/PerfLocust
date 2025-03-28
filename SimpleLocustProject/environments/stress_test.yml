@@ -1,0 +1,9 @@
+test_name: "Stress Test - Overloading API"
+host: "https://restful-booker.herokuapp.com"
+users: 1000  # Simulating system overload
+spawn_rate: 200  # Very high ramp-up rate
+run_time: "10m"
+endpoint: "/booking?firstname=Jim"
+
+
+#A Stress Test overloads the system beyond its capacity to see how it fails and recovers.
