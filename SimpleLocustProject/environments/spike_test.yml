@@ -1,0 +1,9 @@
+test_name: "Spike Test - Sudden User Surge"
+users: 500  # Sudden large traffic spike
+spawn_rate: 100  # Rapid user injection
+run_time: "5m"  # Short-duration high load
+headless: true
+test_files:
+  - "simulations/api_tests.py"
+
+# A Spike Test simulates a sudden surge in users to see how the system handles an unexpected traffic increase.

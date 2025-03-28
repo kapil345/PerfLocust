@@ -1,8 +1,9 @@
 test_name: "Soak Test - Long Duration"
-host: "https://restful-booker.herokuapp.com"
 users: 50
 spawn_rate: 5
 run_time: "3h"  # Running test for 3 hours
-endpoint: "/booking?firstname=Jim"
+headless: true
+test_files:
+  - "simulations/api_tests.py"
 
 # A Soak Test runs for a long duration with a moderate load to check for memory leaks, performance degradation, and system stability.
