@@ -29,7 +29,7 @@ class PerfRunner:
         # setting the env variable after loading from yml file
         os.environ["ENVIRONMENT"] = environment_name  
 
-        print(f"\n🔹 Running tests in **{environment_name}** environment")
+        print(f"\n Running tests in **{environment_name}** environment")
 
         test_files = config.get("test_files", ["simulations/api_tests.py"])
         report_path = f"reports/locust_report_{environment_name.lower()}.html"
