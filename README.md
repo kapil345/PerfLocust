@@ -118,17 +118,21 @@ Run the Python-based Kubernetes Pod Runner:
 ```bash
 python runner/kube_locust_runner.py -f environments/kube_locust_config.yml
 ```
+<img width="981" alt="Image" src="https://github.com/user-attachments/assets/7f7b90c7-20b2-445b-9e4d-a44a9c3a96a1" />
 
 Verify Pod is Created:
 
 ```bash
 kubectl get pods -n locust-perf
 ```
+<img width="723" alt="Image" src="https://github.com/user-attachments/assets/478f96fa-1724-4e41-9092-75c467b8b37b" />
+
 Check Logs of the Running Pod:
 
 ```bash
 kubectl logs -f locust-standalone -n locust-perf
 ```
+<img width="1324" alt="Image" src="https://github.com/user-attachments/assets/aade7fcf-c880-442e-89df-97699e4bb1fa" />
 
 📄 Sample Config (kube_locust_config.yml)
 
