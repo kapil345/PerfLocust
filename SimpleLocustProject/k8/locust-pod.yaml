@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: locust-standalone
+  labels:
+    app: locust
+spec:
+  containers:
+  - name: locust
+    image: kapilautomation/locust-perf-image:latest
+    imagePullPolicy: Always
+    command: ["python"]
+    args: ["/opt/locust/runner/run_locust.py", "-f", "environments/load_test.yml"]
+  restartPolicy: Never
