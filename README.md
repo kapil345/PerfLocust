@@ -111,33 +111,35 @@ kubectl configured and connected to the right cluster
 Namespace created (e.g., locust-perf)
 
 🧪 Step-by-Step: Run Pod with Locust via Code
+
+
 Run the Python-based Kubernetes Pod Runner:
 
-bash
-Copy
-Edit
+```bash
 python runner/kube_locust_runner.py -f environments/kube_locust_config.yml
+```
+
 Verify Pod is Created:
 
-bash
-Copy
-Edit
+```bash
 kubectl get pods -n locust-perf
+```
 Check Logs of the Running Pod:
 
-bash
-Copy
-Edit
+```bash
 kubectl logs -f locust-standalone -n locust-perf
+```
+
 📄 Sample Config (kube_locust_config.yml)
-yaml
-Copy
-Edit
+
+```bash
 namespace: locust-perf
 docker_image: kapilautomation/locust-perf-image:latest
 test_file: runner/run_locust.py
 config_file: environments/load_test.yml
 pod_name: locust-standalone
+```
+
 ✅ Notes
 Runner auto-creates the namespace (if not exists).
 
