@@ -96,31 +96,54 @@ kubectl logs locust-standalone
 
 ### Option 2: Using Python Kubernetes Runner
 
-```bash
+ Running Locust via Pod Runner (Kubernetes)
+This project supports executing Locust performance tests inside Kubernetes pods using a Python-based runner.
+
+📁 Pre-requisites
+Kubernetes cluster (local via kind or remote)
+
+Locust Docker image built & pushed (e.g. kapilautomation/locust-perf-image:latest)
+
+Valid Locust test files inside your image
+
+kubectl configured and connected to the right cluster
+
+Namespace created (e.g., locust-perf)
+
+🧪 Step-by-Step: Run Pod with Locust via Code
+Run the Python-based Kubernetes Pod Runner:
+
+bash
+Copy
+Edit
 python runner/kube_locust_runner.py -f environments/kube_locust_config.yml
-```
+Verify Pod is Created:
 
-Ensure `kube_locust_config.yml` contains:
-```yaml
-service: "locust-api"
-kube_config: "kind-locust-cluster"
-kube_prefix: "locust"
-namespace: "locust-perf"
-docker_image: "kapilautomation/locust-perf-image:latest"
-test_file: "simulations/api_tests.py"
-users: 5
-spawn_rate: 3
-run_time: "1m"
-headless: true
-worker_count: 3
-```
+bash
+Copy
+Edit
+kubectl get pods -n locust-perf
+Check Logs of the Running Pod:
 
-This will:
-- Create namespace (if not exists)
-- Create config maps
-- Deploy master & worker pods
-- Wait for test to complete
-- Clean up pods
+bash
+Copy
+Edit
+kubectl logs -f locust-standalone -n locust-perf
+📄 Sample Config (kube_locust_config.yml)
+yaml
+Copy
+Edit
+namespace: locust-perf
+docker_image: kapilautomation/locust-perf-image:latest
+test_file: runner/run_locust.py
+config_file: environments/load_test.yml
+pod_name: locust-standalone
+✅ Notes
+Runner auto-creates the namespace (if not exists).
+
+Old pods with the same name are deleted before re-deployment.
+
+Test execution logs are accessible via kubectl logs.
 
 ---
 
