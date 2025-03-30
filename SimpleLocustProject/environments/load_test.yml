@@ -6,4 +6,3 @@ run_time: "5s"
 headless: true  # Control if test runs in headless mode
 test_files:
   - "simulations/api_tests.py"
-# A standard Load Test that gradually increases users to simulate normal traffic.

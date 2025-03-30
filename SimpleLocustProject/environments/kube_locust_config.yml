@@ -1,0 +1,31 @@
+service: "locust-api"
+kube_config: "kind-locust-cluster"
+kube_prefix: "locust"
+namespace: "locust-perf"
+docker_image: "kapilautomation/locust-perf-image:latest"
+test_file: "simulations/api_tests.py"
+users: 5
+spawn_rate: 3
+run_time: "30s"
+headless: true
+worker_count: 3
+
+# Docker image settings
+build_docker: true  # Set to false if you want to use an existing image
+docker_registry: "docker.io"
+docker_image_name: "my-locust-image"
+docker_tag: "latest"
+
+# Environment Variables
+env_vars:
+  API_HOST: "https://your-api-url.com"
+  LOCUST_MODE: "master"
+
+reporting:
+  type: "markdown"  # options: markdown, html, s3, slack, email
+  output_dir: "reports/"
+  s3_bucket: "your-s3-bucket"
+  notify:
+    slack_webhook: "https://hooks.slack.com/services/xxx/yyy/zzz"
+    email: "team@example.com"
+

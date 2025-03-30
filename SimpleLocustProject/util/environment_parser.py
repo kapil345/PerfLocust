@@ -17,7 +17,7 @@ class EnvironmentParser:
             env_config = json.load(file)
 
         if self.environment not in env_config:
-            raise ValueError(f"❌ Invalid environment: {self.environment}")
+            raise ValueError(f"Invalid environment: {self.environment}")
 
         return env_config[self.environment]
 
@@ -26,6 +26,6 @@ class EnvironmentParser:
         api_host = self.hosts.get("api_host", None)
 
         if not api_host:
-            raise ValueError(f"❌ Error: No `api_host` found in {self.environment}")
+            raise ValueError(f" Error: No `api_host` found in {self.environment}")
 
         return api_host

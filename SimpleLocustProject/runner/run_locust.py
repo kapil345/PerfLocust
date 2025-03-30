@@ -24,12 +24,12 @@ class PerfRunner:
         # read the yml file
         environment_name = config.get("environment", "").upper()  
         if not environment_name:
-            raise ValueError("❌ Error: No environment specified in load_test.yml")
+            raise ValueError("Error: No environment specified in load_test.yml")
 
         # setting the env variable after loading from yml file
         os.environ["ENVIRONMENT"] = environment_name  
 
-        print(f"\n🔹 Running tests in **{environment_name}** environment")
+        print(f"\n Running tests in **{environment_name}** environment")
 
         test_files = config.get("test_files", ["simulations/api_tests.py"])
         report_path = f"reports/locust_report_{environment_name.lower()}.html"
@@ -45,7 +45,7 @@ class PerfRunner:
                 f"--html={report_path}"
             ]
 
-            print(f"🚀 Running: {test_file}")
+            print(f"Running: {test_file}")
             subprocess.run(command)
             print(f"\n Report generated: {report_path}")
 

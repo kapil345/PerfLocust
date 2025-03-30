@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: locust-staging
+  labels:
+    app: locust
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: locust
+  template:
+    metadata:
+      labels:
+        app: locust
+    spec:
+      containers:
+        - name: locust
+          image: kapilautomation/locust-perf-image:latest
+          imagePullPolicy: Always
+          command: ["python"]
+          args:
+            - /opt/locust/runner/run_locust.py
+            - -f
+            - environments/load_test.yml
+          resources:
+            limits:
+              cpu: "100m"
+              memory: "100Mi"
+            requests:
+              cpu: "50m"
+              memory: "5Mi"
+      restartPolicy: Always
