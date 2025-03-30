@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: locust-prod
+  labels:
+    app: locust
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: locust
+  template:
+    metadata:
+      labels:
+        app: locust
+        env: production
+    spec:
+      containers:
+        - name: locust
+          image: kapilautomation/locust-perf-image:latest
+          imagePullPolicy: Always
+          command: ["python"]
+          args: ["/opt/locust/runner/run_locust.py", "-f", "environments/load_test.yml"]
+          env:
+            - name: ENV
+              value: "production"
+            - name: AWS_ROLE
+              value: "your-aws-role"
+            - name: S3_BUCKET
+              value: "your-bucket"
+          resources:
+            requests:
+              cpu: "2"
+              memory: "4Gi"
+            limits:
+              cpu: "4"
+              memory: "8Gi"
+      restartPolicy: Always

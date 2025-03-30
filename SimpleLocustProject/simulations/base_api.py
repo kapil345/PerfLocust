@@ -1,7 +1,7 @@
 # simulations/base_api.py
 import os
 from locust import HttpUser
-from util.environment_parser import EnvironmentParser  # ✅ Fix Import Path
+from util.environment_parser import EnvironmentParser 
 
 class BaseAPI(HttpUser):
     """
@@ -25,5 +25,5 @@ class BaseAPI(HttpUser):
 
         print(f"\n🔹 API Testing in {self.environment_name} - API Host: {self.host}")
 
-        # Ensure `self.host` is set BEFORE calling `super().__init__()`
+        # Make sure self.host is set BEFORE calling super().__init__()
         super().__init__(environment)  # Initialize superclass after setting host
