@@ -12,62 +12,56 @@ venv\Scripts\activate      # Windows
 pip install -r requirements.txt
 🚀 Running Tests
 🔹 Run Default Load Test
-bash
-Copy
-Edit
+
 python runner/run_locust.py -f environments/load_test.yml
+
+
 🔹 Run in Web UI Mode
-bash
-Copy
-Edit
+
 python runner/run_locust.py -f environments/load_test.yml
 Then open http://localhost:8089 to start the test.
 
 🔹 Run Specific Performance Tests
+
 Soak Test
-
-bash
-Copy
-Edit
 python runner/run_locust.py -f environments/soak_test.yml
+
+
 Spike Test
-
-bash
-Copy
-Edit
 python runner/run_locust.py -f environments/spike_test.yml
-Stress Test
 
-bash
-Copy
-Edit
+
+Stress Test
 python runner/run_locust.py -f environments/stress_test.yml
 Concurrency Test
 
-bash
-Copy
-Edit
+
 python runner/run_locust.py -f environments/concurrent_test.yml
+
+
 🔄 Running Multiple Test Suites
 If multiple test files are specified in YAML, all will run sequentially.
 
-yaml
-Copy
-Edit
+
 test_files:
   - "simulations/api_tests.py"
   - "simulations/db_tests.py"
   - "simulations/ui_tests.py"
 Run:
 
-bash
-Copy
-Edit
+
 python runner/run_locust.py -f environments/load_test.yml
+
+
 ⚡ Features
+
 Supports headless and web UI modes
+
 Runs API, UI, database, and microservice performance tests
+
 Automated YAML-driven configuration
+
 Supports multiple test files per execution
+
 Easily integrated into CI/CD pipelines
 
